@@ -85,8 +85,8 @@ jobs:
       working-directory: /builder
       run: |
         export PATH="/opt/clang/bin:$PATH"
-        [ "${{ matrix.libc }}" = "glibc" ] && export USE_GLIBC=y
-        BUILD_TOOLCHAIN=y ENABLE_LTO=y ENABLE_BPF=y USE_GCC13=y USE_MOLD=y bash <(curl -sS ${{ secrets.script_url_general }}) ${{ matrix.tag.type }} ${{ matrix.model }}
+        [ "${{ matrix.libc }}" = "glibc" ] && export ENABLE_GLIBC=y
+        BUILD_TOOLCHAIN=y ENABLE_LTO=y ENABLE_BPF=y USE_GCC13=y ENABLE_MOLD=y bash <(curl -sS ${{ secrets.script_url_general }}) ${{ matrix.tag.type }} ${{ matrix.model }}
 
     - name: Create release
       uses: ncipollo/release-action@v1.14.0

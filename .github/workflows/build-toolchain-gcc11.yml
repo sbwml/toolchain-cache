@@ -99,7 +99,7 @@ jobs:
       working-directory: /builder
       run: |
         export PATH="/opt/clang/bin:$PATH"
-        [ "${{ matrix.libc }}" = "glibc" ] && export USE_GLIBC=y
+        [ "${{ matrix.libc }}" = "glibc" ] && export ENABLE_GLIBC=y
         BUILD_TOOLCHAIN=y ENABLE_LTO=y ENABLE_BPF=y bash <(curl -sS ${{ secrets.script_url_general }}) ${{ matrix.tag.type }} ${{ matrix.model }}
 
     - name: Create release
